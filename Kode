@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angkatan 6 - SERASI | Thursina YBM PLN</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        serasi: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        tree: {
+                            line: '#86efac',
+                            lineDark: '#059669',
+                            badge: '#22c55e'
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                            950: '#01030d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        code: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(186, 230, 253, 0.6);
+        }
+        
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(14, 165, 233, 0.25);
+        }
+
+        .glass-nav {
+            background: rgba(240, 249, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(125, 211, 252, 0.4);
+        }
+
+        .dark .glass-nav {
+            background: rgba(2, 6, 23, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .bg-serasi-gradient {
+            background: linear-gradient(-45deg, #e0f2fe, #bae6fd, #7dd3fc, #f0f9ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .dark .bg-serasi-gradient {
+            background: linear-gradient(-45deg, #0c4a6e, #075985, #0f172a, #020617);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* FAMILY TREE SPECIFIC STYLING */
+        .tree-connector-v {
+            width: 3px;
+            background-color: #4ade80;
+            margin: 0 auto;
+        }
+        .dark .tree-connector-v {
+            background-color: #059669;
+        }
+
+        .tree-connector-h {
+            height: 3px;
+            background-color: #4ade80;
+        }
+        .dark .tree-connector-h {
+            background-color: #059669;
+        }
+
+        .tree-node-circle {
+            box-shadow: 0 8px 20px rgba(74, 222, 128, 0.3);
+            transition: all 0.3s ease;
+        }
+        .tree-node-circle:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 12px 28px rgba(74, 222, 128, 0.5);
+        }
+
+        .ribbon-label {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+            border: 2px solid #ffffff;
+        }
+        .dark .ribbon-label {
+            background: linear-gradient(135deg, #059669, #047857);
+            border: 2px solid #0f172a;
+        }
+
+        .ribbon-label-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+            border: 2px solid #ffffff;
+        }
+        .dark .ribbon-label-gold {
+            background: linear-gradient(135deg, #b45309, #78350f);
+            border: 2px solid #0f172a;
+        }
+    </style>
+    <style id="admin-custom-style"></style>
+</head>
+
+<body class="bg-serasi-50 text-slate-800 dark:bg-navy-900 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#beranda" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-serasi-400 to-serasi-600 flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-lg shadow-serasi-400/30 group-hover:scale-105 transition-transform">
+                    S6
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-xl tracking-tight bg-gradient-to-r from-serasi-700 via-serasi-500 to-sky-400 bg-clip-text text-transparent dark:from-sky-300 dark:to-serasi-400">
+                        SERASI
+                    </span>
+                    <span class="block text-[10px] font-bold text-serasi-600 dark:text-serasi-300 tracking-wider uppercase">ANGKATAN 6 THURSINA</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="hidden lg:flex items-center gap-1 bg-white/70 dark:bg-navy-800/70 p-1.5 rounded-full border border-serasi-200/80 dark:border-serasi-800/80 shadow-sm">
+                <a href="#beranda" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Beranda</a>
+                <a href="#account" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Informasi</a>
+                <a href="#pohon-organisasi" class="px-3.5 py-2 rounded-full text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+                    <i class="fa-solid fa-sitemap mr-1"></i> Pohon Organisasi
+                </a>
+                <a href="#anggota" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Direktori</a>
+                <a href="#berita" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Berita</a>
+                <a href="#galeri" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Galeri</a>
+                <a href="#timeline" class="px-3.5 py-2 rounded-full text-xs font-semibold hover:text-serasi-600 dark:hover:text-serasi-300 transition-colors">Timeline</a>
+                <button onclick="openAdminModalDirectly()" class="px-3.5 py-2 rounded-full text-xs font-extrabold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/60 hover:bg-amber-200 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-lock text-xs"></i>
+                    <span>Admin Studio</span>
+                </button>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Sync Status Indicator -->
+                <div id="sync-status-badge" class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold border border-emerald-300 dark:border-emerald-800" title="Koneksi Realtime Aktif">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Live Sync</span>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-white/80 dark:bg-navy-800/80 border border-serasi-200 dark:border-serasi-800 text-serasi-600 dark:text-serasi-300 flex items-center justify-center hover:scale-105 transition-all shadow-sm">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl bg-white/80 dark:bg-navy-800/80 border border-serasi-200 dark:border-serasi-800 text-serasi-600 dark:text-serasi-300 flex items-center justify-center">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 dark:bg-navy-900/95 border-b border-serasi-200 dark:border-serasi-800 px-6 py-4 space-y-3">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Beranda</a>
+            <a href="#account" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Informasi Pondok</a>
+            <a href="#pohon-organisasi" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                <i class="fa-solid fa-sitemap mr-1.5"></i> Pohon Organisasi
+            </a>
+            <a href="#anggota" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Direktori Anggota</a>
+            <a href="#berita" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Berita & Pengumuman</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Galeri Momen</a>
+            <a href="#timeline" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-serasi-500">Timeline</a>
+            <button onclick="toggleMobileMenu(); openAdminModalDirectly()" class="w-full text-left py-2 text-sm font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+                <i class="fa-solid fa-lock text-xs"></i>
+                <span>Admin Studio (Kelola Web)</span>
+            </button>
+        </div>
+    </header>
+
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-serasi-gradient">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-serasi-300/30 rounded-full blur-3xl pointer-events-none animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-sky-200/40 dark:bg-sky-900/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-navy-800/90 border border-serasi-300 dark:border-serasi-700 text-serasi-700 dark:text-serasi-300 text-xs font-bold tracking-wide uppercase mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span id="site-tagline-badge">Six Generation Thursina</span>
+                </div>
+
+                <h1 id="hero-title" class="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-slate-900 dark:text-white leading-tight mb-6">
+                    Harmoni Langkah <br>
+                    <span class="bg-gradient-to-r from-serasi-500 via-sky-400 to-emerald-500 bg-clip-text text-transparent">Angkatan 6 SERASI</span>
+                </h1>
+
+                <p id="hero-subtitle" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed font-light">
+                    Ruang ukhuwah dan kebersamaan 24 Santri beserta Wali Kelas dan Wali Halaqoh Angkatan 6 SERASI di <b>Pondok Pesantren Tahfidz & Entrepreneur Thursina YBM PLN</b>.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="#pohon-organisasi" class="px-7 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/30 hover:scale-105 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-sitemap"></i>
+                        <span>Lihat Pohon Organisasi</span>
+                    </a>
+                    <a href="#berita" class="px-7 py-3.5 rounded-2xl bg-serasi-500 hover:bg-serasi-600 text-white font-bold text-sm shadow-lg shadow-serasi-500/30 hover:scale-105 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <span>Kabar & Berita</span>
+                    </a>
+                    <a href="https://www.instagram.com/serasi.06" target="_blank" class="px-6 py-3.5 rounded-2xl bg-white/90 dark:bg-navy-800/90 hover:bg-white text-slate-700 dark:text-slate-200 border border-serasi-200 dark:border-serasi-700 font-semibold text-sm shadow-sm hover:scale-105 transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-instagram text-rose-500 text-base"></i>
+                        <span>@serasi.06</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+                <div class="glass-card p-5 rounded-2xl text-center shadow-md border-t-4 border-t-serasi-400">
+                    <i class="fa-solid fa-user-graduate text-2xl text-serasi-500 mb-2"></i>
+                    <div id="stat-santri-count" class="font-heading font-extrabold text-3xl text-slate-800 dark:text-white">24</div>
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Santri Aktif</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center shadow-md border-t-4 border-t-emerald-400">
+                    <i class="fa-solid fa-chalkboard-user text-2xl text-emerald-500 mb-2"></i>
+                    <div id="stat-guru-count" class="font-heading font-extrabold text-3xl text-slate-800 dark:text-white">2</div>
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Pembimbing Utama</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center shadow-md border-t-4 border-t-amber-400">
+                    <i class="fa-solid fa-newspaper text-2xl text-amber-500 mb-2"></i>
+                    <div id="stat-news-count" class="font-heading font-extrabold text-3xl text-slate-800 dark:text-white">3</div>
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Berita Rilis</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center shadow-md border-t-4 border-t-sky-400">
+                    <i class="fa-solid fa-images text-2xl text-sky-500 mb-2"></i>
+                    <div id="stat-gallery-count" class="font-heading font-extrabold text-3xl text-slate-800 dark:text-white">6+</div>
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Galeri Album</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="account" class="py-16 bg-white dark:bg-navy-900 border-y border-serasi-100 dark:border-serasi-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Pondok Pesantren Info -->
+                <div class="glass-card p-8 rounded-3xl border border-serasi-200 dark:border-serasi-800 shadow-sm relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 text-serasi-100 dark:text-navy-800 text-9xl pointer-events-none">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-serasi-100 dark:bg-serasi-900/60 text-serasi-700 dark:text-serasi-300 text-xs font-bold mb-4">
+                        <i class="fa-solid fa-mosque"></i>
+                        <span>Lembaga Pendidikan</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">
+                        Pondok Pesantren Tahfidz & Entrepreneur Thursina YBM PLN
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        Pusat pencetak generasi Qur'ani yang unggul dalam ilmu keagamaan, kepemimpinan, dan kewirausahaan. Rumah perjuangan Angkatan 6 SERASI.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="px-3 py-1.5 rounded-xl bg-serasi-50 dark:bg-navy-800 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-serasi-200 dark:border-serasi-700">
+                            <i class="fa-solid fa-graduation-cap text-serasi-500 mr-1.5"></i> Angkatan 6 (SERASI)
+                        </div>
+                        <div class="px-3 py-1.5 rounded-xl bg-serasi-50 dark:bg-navy-800 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-serasi-200 dark:border-serasi-700">
+                            <i class="fa-solid fa-book-quran text-serasi-500 mr-1.5"></i> Tahfidz & Entrepreneur
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Serasi Official Card -->
+                <div class="glass-card p-8 rounded-3xl border border-rose-200/60 dark:border-rose-900/40 shadow-sm bg-gradient-to-br from-white via-white to-rose-50/30 dark:from-navy-900 dark:to-navy-800">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-3xl shadow-md">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Official Social Media</span>
+                            <h4 class="font-heading font-bold text-2xl text-slate-900 dark:text-white">@serasi.06</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Akun Resmi Instagram Angkatan 6 SERASI</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        Ikuti seluruh pembaruan kegiatan, karya santri, dokumentasi halaqoh, serta momen kebersamaan Angkatan 6 Thursina secara langsung.
+                    </p>
+
+                    <a href="https://www.instagram.com/serasi.06" target="_blank" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold text-xs shadow-md hover:scale-105 transition-transform">
+                        <i class="fa-brands fa-instagram text-base"></i>
+                        <span>Kunjungi @serasi.06</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pohon-organisasi" class="py-20 relative bg-gradient-to-b from-emerald-50/60 via-serasi-50/40 to-white dark:from-navy-950 dark:via-navy-900 dark:to-navy-950 border-t border-emerald-200/50 dark:border-emerald-900/50 overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-[850px]">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-xs font-extrabold uppercase tracking-widest border border-emerald-300 dark:border-emerald-800">
+                    <i class="fa-solid fa-tree mr-1"></i> Struktur Pohon Organisasi
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white mt-4 mb-3">
+                    Bagan Hirarki Family Tree SERASI
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                    Struktur kepemimpinan berformat diagram pohon dengan foto profil, lingkaran hijau khas, dan pita jabatan.
+                </p>
+            </div>
+
+            <!-- LEVEL 1: PEMBIMBING UTAMA (GRANDPARENTS/TOP LEVEL) -->
+            <div class="flex flex-col items-center">
+                <!-- Title Label -->
+                <div class="mb-4">
+                    <span class="px-5 py-1.5 rounded-full bg-amber-500 text-white text-xs font-black uppercase tracking-wider shadow-md border-2 border-white dark:border-navy-900">
+                        <i class="fa-solid fa-crown mr-1.5"></i> Pembimbing Utama
+                    </span>
+                </div>
+
+                <!-- Two Nodes Connected with Line -->
+                <div id="tree-level-1" class="flex items-center justify-center gap-16 md:gap-32 relative">
+                    <!-- Dynamic rendering by JS or static visual tree structure -->
+                </div>
+
+                <!-- Vertical Trunk Line Down to Level 2 -->
+                <div class="tree-connector-v h-12"></div>
+
+                <!-- Horizontal Connector Bar for BPH -->
+                <div class="tree-connector-h w-[60%] my-0"></div>
+
+                <!-- Vertical Lines down to BPH Nodes -->
+                <div class="w-[60%] flex justify-between">
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                </div>
+
+                <!-- LEVEL 2: BPH (PARENTS / LEADERSHIP LEVEL) -->
+                <div class="mb-2">
+                    <span class="px-5 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-black uppercase tracking-wider shadow-md border-2 border-white dark:border-navy-900">
+                        <i class="fa-solid fa-user-shield mr-1.5"></i> Pengurus Harian (BPH)
+                    </span>
+                </div>
+
+                <div id="tree-level-2" class="flex items-center justify-between w-[80%] gap-4 my-2">
+                    <!-- BPH nodes rendered here -->
+                </div>
+
+                <!-- Vertical Trunk Line Down to Level 3 -->
+                <div class="tree-connector-v h-12"></div>
+
+                <!-- Horizontal Connector Bar for Komisaris -->
+                <div class="tree-connector-h w-[85%] my-0"></div>
+
+                <div class="w-[85%] flex justify-between">
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                    <div class="tree-connector-v h-8"></div>
+                </div>
+
+                <!-- LEVEL 3: KOMISARIS & BAGIAN AKTIF -->
+                <div class="mb-2">
+                    <span class="px-5 py-1.5 rounded-full bg-sky-600 text-white text-xs font-black uppercase tracking-wider shadow-md border-2 border-white dark:border-navy-900">
+                        <i class="fa-solid fa-users-gear mr-1.5"></i> Divisi & Bagian Aktif
+                    </span>
+                </div>
+
+                <div id="tree-level-3" class="flex items-center justify-between w-[95%] gap-2 my-2">
+                    <!-- Komisaris nodes rendered here -->
+                </div>
+
+                <!-- Vertical Line Down to All Members -->
+                <div class="tree-connector-v h-12"></div>
+                <div class="tree-connector-h w-full max-w-5xl"></div>
+                <div class="tree-connector-v h-8"></div>
+
+                <!-- LEVEL 4: ANGGOTA SANTRI SERASI -->
+                <div class="mb-6">
+                    <span class="px-5 py-1.5 rounded-full bg-indigo-600 text-white text-xs font-black uppercase tracking-wider shadow-md border-2 border-white dark:border-navy-900">
+                        <i class="fa-solid fa-graduation-cap mr-1.5"></i> Anggota Santri SERASI
+                    </span>
+                </div>
+
+                <div id="tree-level-4" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 max-w-6xl mx-auto w-full pt-4">
+                    <!-- Members tree circle cards rendered here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="berita" class="py-20 bg-white dark:bg-navy-900 border-t border-serasi-100 dark:border-serasi-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="px-3.5 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-newspaper mr-1"></i> Kabar Angkatan
+                    </span>
+                    <h3 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-3">
+                        Berita & Pengumuman SERASI
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        Informasi terbaru seputar kegiatan, pencapaian, dan kabar angkatan.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="openAdminModalDirectly('news')" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                        <span>Tambah Berita Baru</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- News Grid Container -->
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dynamic News Cards -->
+            </div>
+        </div>
+    </section>
+
+    <section id="anggota" class="py-20 relative bg-serasi-50/50 dark:bg-navy-950 border-t border-serasi-100 dark:border-serasi-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-serasi-600 dark:text-serasi-400 mb-2">Direktori Lengkap</h2>
+                    <h3 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white">Santri & Pengasuh SERASI</h3>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="relative min-w-[220px]">
+                        <i class="fa-solid fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="member-search" oninput="renderMembers()" placeholder="Cari nama santri/guru..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 focus:outline-none focus:ring-2 focus:ring-serasi-400 text-xs">
+                    </div>
+                    
+                    <select id="member-filter-role" onchange="renderMembers()" class="px-4 py-2.5 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 focus:outline-none focus:ring-2 focus:ring-serasi-400 text-xs font-semibold">
+                        <option value="ALL">Semua Peran</option>
+                        <option value="Wali Kelas">Wali Kelas</option>
+                        <option value="Wali Halaqoh">Wali Halaqoh</option>
+                        <option value="Pengurus / Bagian Aktif">Pengurus & Bagian Aktif</option>
+                        <option value="Santri">Santri</option>
+                    </select>
+
+                    <button onclick="openAddMemberModal()" class="px-4 py-2.5 rounded-xl bg-serasi-500 text-white font-semibold text-xs hover:bg-serasi-600 transition-colors flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-user-plus text-xs"></i>
+                        <span>Tambah Anggota</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Members Container Grid -->
+            <div id="members-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Cards rendered dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri" class="py-20 bg-white dark:bg-navy-900 border-t border-serasi-100 dark:border-serasi-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-serasi-600 dark:text-serasi-400 mb-2">Album Kenangan</h2>
+                <h3 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white">Galeri Momen Indah</h3>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="gallery-category-filters">
+                <button onclick="filterGallery('ALL')" class="gallery-cat-btn px-5 py-2 rounded-full text-xs font-semibold bg-serasi-500 text-white transition-all shadow-sm">Semua Foto</button>
+                <button onclick="filterGallery('Halaqoh')" class="gallery-cat-btn px-5 py-2 rounded-full text-xs font-semibold bg-serasi-100 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:bg-serasi-200 transition-all">Halaqoh & Asrama</button>
+                <button onclick="filterGallery('Kegiatan')" class="gallery-cat-btn px-5 py-2 rounded-full text-xs font-semibold bg-serasi-100 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:bg-serasi-200 transition-all">Kegiatan Kelas</button>
+                <button onclick="filterGallery('Kebersamaan')" class="gallery-cat-btn px-5 py-2 rounded-full text-xs font-semibold bg-serasi-100 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:bg-serasi-200 transition-all">Kebersamaan</button>
+            </div>
+
+            <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Gallery Items -->
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-20 bg-serasi-50/50 dark:bg-navy-950 border-t border-serasi-100 dark:border-serasi-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-serasi-600 dark:text-serasi-400 mb-2">Jejak Langkah</h2>
+                <h3 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white">Timeline Perjalanan SERASI</h3>
+            </div>
+
+            <div class="relative border-l-2 border-serasi-300 dark:border-serasi-700 ml-4 md:ml-32 space-y-12">
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-serasi-500 ring-4 ring-serasi-100 dark:ring-navy-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-serasi-600 dark:text-serasi-400 w-24 text-right">Peresmian</div>
+                    <div class="glass-card p-6 rounded-2xl shadow-sm">
+                        <span class="md:hidden inline-block text-xs font-bold text-serasi-600 mb-2">Peresmian</span>
+                        <h4 class="font-heading font-bold text-lg text-slate-800 dark:text-white mb-2">Awal Mula & Nama SERASI</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+                            Penyatuan 24 santri terpilih di bawah bimbingan Wali Kelas Ust. Ali Mudhofir & Wali Halaqoh Ust. Osama Al-Barra di Pondok Pesantren Thursina YBM PLN.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-sky-400 ring-4 ring-serasi-100 dark:ring-navy-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-serasi-600 dark:text-serasi-400 w-24 text-right">Perjuangan</div>
+                    <div class="glass-card p-6 rounded-2xl shadow-sm">
+                        <span class="md:hidden inline-block text-xs font-bold text-serasi-600 mb-2">Perjuangan</span>
+                        <h4 class="font-heading font-bold text-lg text-slate-800 dark:text-white mb-2">Setoran Halaqoh & Kepengurusan Aktif</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+                            Aktivitas rutin tahfidz Al-Qur'an, wirausaha entrepreneur, dan koordinasi divisi pengurus untuk menjaga kebersamaan angkatan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-serasi-100 dark:ring-navy-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-serasi-600 dark:text-serasi-400 w-24 text-right">Masa Depan</div>
+                    <div class="glass-card p-6 rounded-2xl shadow-sm">
+                        <span class="md:hidden inline-block text-xs font-bold text-serasi-600 mb-2">Masa Depan</span>
+                        <h4 class="font-heading font-bold text-lg text-slate-800 dark:text-white mb-2">Pemimpin Masa Depan</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+                            Melangkah bersama membawa nama alumni Thursina YBM PLN dengan prestasi, kebermanfaatan, dan integritas kepemimpinan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="news-detail-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md hidden">
+        <div class="bg-white dark:bg-navy-900 border border-serasi-300 dark:border-serasi-800 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div id="news-modal-img-container" class="h-60 w-full bg-slate-200 dark:bg-navy-800 relative">
+                <img id="news-modal-img" src="" alt="" class="w-full h-full object-cover">
+                <button onclick="closeNewsDetailModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/60 text-white flex items-center justify-center hover:bg-slate-900">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4">
+                <div class="flex items-center gap-3">
+                    <span id="news-modal-cat" class="px-2.5 py-0.5 rounded-md bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider"></span>
+                    <span id="news-modal-date" class="text-xs text-slate-400"></span>
+                </div>
+                <h3 id="news-modal-title" class="font-heading font-extrabold text-2xl text-slate-900 dark:text-white"></h3>
+                <p id="news-modal-content" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md hidden">
+        <div class="bg-white dark:bg-navy-900 border border-serasi-300 dark:border-serasi-800 w-full max-w-md rounded-3xl p-6 shadow-2xl relative text-center">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-600 text-white text-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white">Akses Admin Studio</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-6">
+                Masukkan KODE KEAMANAN untuk mengedit seluruh konten, berita, foto, dan kode website.
+            </p>
+
+            <form onsubmit="verifyAdminPassword(event)" class="space-y-4">
+                <div>
+                    <input type="password" id="admin-pass-input" placeholder="Kode Kunci Admin..." autocomplete="off" required class="w-full px-4 py-3 rounded-xl bg-serasi-50/60 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-700 focus:outline-none focus:ring-2 focus:ring-amber-400 font-code text-center text-sm tracking-widest">
+                </div>
+
+                <div id="admin-auth-error" class="hidden text-xs text-rose-500 font-semibold bg-rose-50 dark:bg-rose-950/50 p-2.5 rounded-xl border border-rose-200 dark:border-rose-800">
+                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Kode akses salah! Kode default: SERASIANG06
+                </div>
+
+                <div class="flex items-center justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeAdminAuthModal()" class="w-full py-2.5 rounded-xl text-xs font-semibold text-slate-500 hover:bg-slate-100 dark:hover:bg-navy-800 transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white shadow-md transition-all">
+                        Masuk Admin Studio
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md hidden transition-opacity">
+        <div class="bg-white dark:bg-navy-900 border border-serasi-300 dark:border-serasi-800 w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-gradient-to-r from-slate-900 via-serasi-900 to-slate-900 text-white flex items-center justify-between border-b border-serasi-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-lg">Admin Studio & Live Web Editor</h3>
+                        <p class="text-xs text-amber-300">Akses Penuh Pengelola • Angkatan 6 SERASI</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-serasi-200 dark:border-serasi-800 bg-serasi-50/50 dark:bg-navy-950 px-6 pt-3 gap-2 overflow-x-auto">
+                <button onclick="switchAdminTab('news')" id="tab-btn-news" class="px-4 py-2 text-xs font-bold rounded-t-xl border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 bg-white dark:bg-navy-900">
+                    <i class="fa-solid fa-newspaper mr-1.5"></i> Kelola Berita & Kabar
+                </button>
+                <button onclick="switchAdminTab('content')" id="tab-btn-content" class="px-4 py-2 text-xs font-bold rounded-t-xl text-slate-500 hover:text-serasi-500">
+                    <i class="fa-solid fa-font mr-1.5"></i> Teks & Hero
+                </button>
+                <button onclick="switchAdminTab('code')" id="tab-btn-code" class="px-4 py-2 text-xs font-bold rounded-t-xl text-slate-500 hover:text-serasi-500">
+                    <i class="fa-solid fa-code mr-1.5"></i> Custom CSS Studio
+                </button>
+                <button onclick="switchAdminTab('json')" id="tab-btn-json" class="px-4 py-2 text-xs font-bold rounded-t-xl text-slate-500 hover:text-serasi-500">
+                    <i class="fa-solid fa-database mr-1.5"></i> Backup & Cloud JSON
+                </button>
+            </div>
+
+            <!-- Tab Content Area -->
+            <div class="p-6 overflow-y-auto flex-1 space-y-6">
+
+                <!-- TAB: KELOLA BERITA -->
+                <div id="tab-news" class="space-y-6">
+                    <div class="glass-card p-5 rounded-2xl border border-amber-300/60 dark:border-amber-800/60">
+                        <h4 id="news-form-title" class="font-heading font-bold text-sm text-amber-600 dark:text-amber-400 mb-3">
+                            <i class="fa-solid fa-plus-circle mr-1"></i> Tambah / Edit Berita Baru
+                        </h4>
+                        <form onsubmit="saveNewsItem(event)" class="space-y-3">
+                            <input type="hidden" id="admin-news-id">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-semibold mb-1">Judul Berita</label>
+                                    <input type="text" id="admin-news-title" required placeholder="Judul Berita..." class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold mb-1">Kategori Tag</label>
+                                    <select id="admin-news-category" class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                                        <option value="Kegiatan">Kegiatan</option>
+                                        <option value="Prestasi">Prestasi</option>
+                                        <option value="Pengumuman">Pengumuman</option>
+                                        <option value="Halaqoh">Halaqoh</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold mb-1">URL Gambar Sampul</label>
+                                <input type="text" id="admin-news-image" placeholder="https://images.unsplash.com/..." class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold mb-1">Isi Berita Lengkap</label>
+                                <textarea id="admin-news-content" rows="4" required placeholder="Tuliskan berita lengkap..." class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs"></textarea>
+                            </div>
+
+                            <div class="flex items-center justify-end gap-2 pt-2">
+                                <button type="button" onclick="resetNewsForm()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-500">Reset</button>
+                                <button type="submit" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md">
+                                    Simpan & Publikasikan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-500 mb-3">Daftar Berita Terpublikasi</h4>
+                        <div id="admin-news-list" class="space-y-3">
+                            <!-- News List Rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: CONTENT -->
+                <div id="tab-content" class="hidden space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Judul Hero Utama</label>
+                            <input type="text" id="admin-hero-title" class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Tagline Badge Singkatan</label>
+                            <input type="text" id="admin-tagline" class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Deskripsi Subtitle Hero</label>
+                        <textarea id="admin-hero-subtitle" rows="3" class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-4 border-t border-serasi-200 dark:border-serasi-800 flex items-center justify-between">
+                        <span id="admin-save-msg" class="text-xs text-emerald-500 font-semibold hidden">Tersimpan secara global!</span>
+                        <button onclick="saveAdminContentSettings()" class="px-5 py-2.5 bg-serasi-500 hover:bg-serasi-600 text-white rounded-xl font-bold text-xs shadow-md">
+                            Simpan Perubahan Teks
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB: CSS STUDIO -->
+                <div id="tab-code" class="hidden space-y-4">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Tuliskan CSS kustom untuk mengubah gaya visual website secara langsung dan mempublikasikannya secara real-time.
+                    </p>
+                    <textarea id="admin-custom-css" rows="12" class="w-full font-code text-xs p-4 rounded-xl bg-slate-900 text-sky-300 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-serasi-400" placeholder="/* CSS kustom Anda di sini */"></textarea>
+                    
+                    <div class="flex justify-end gap-3">
+                        <button onclick="applyCustomCSS()" class="px-5 py-2.5 bg-serasi-500 hover:bg-serasi-600 text-white rounded-xl font-bold text-xs shadow-md">
+                            Terapkan & Publikasikan CSS
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB: JSON BACKUP -->
+                <div id="tab-json" class="hidden space-y-4">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Ekspor atau impor data lengkap direktori santri, berita, dan kepengurusan dalam format JSON.
+                    </p>
+                    <textarea id="admin-json-data" rows="10" class="w-full font-code text-xs p-4 rounded-xl bg-slate-900 text-emerald-400 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-serasi-400"></textarea>
+
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="resetDefaultData()" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-semibold text-xs">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Ke Data Default
+                        </button>
+                        <button onclick="saveJSONData()" class="px-5 py-2 bg-serasi-500 hover:bg-serasi-600 text-white rounded-xl font-bold text-xs shadow-md">
+                            Simpan Data JSON
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="member-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white dark:bg-navy-900 border border-serasi-300 dark:border-serasi-800 w-full max-w-lg rounded-2xl p-6 shadow-xl">
+            <h3 id="member-modal-title" class="font-heading font-bold text-xl mb-4 text-slate-800 dark:text-white">Tambah Anggota SERASI</h3>
+            
+            <form id="member-form" onsubmit="saveMemberForm(event)" class="space-y-4">
+                <input type="hidden" id="member-id">
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Nama Lengkap</label>
+                    <input type="text" id="member-name" required class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Peran / Kategori</label>
+                        <select id="member-role" class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                            <option value="Santri">Santri</option>
+                            <option value="Wali Kelas">Wali Kelas</option>
+                            <option value="Wali Halaqoh">Wali Halaqoh</option>
+                            <option value="Ketua Angkatan">Ketua Angkatan</option>
+                            <option value="Wakil Ketua Angkatan">Wakil Ketua Angkatan</option>
+                            <option value="Sekretaris Angkatan">Sekretaris Angkatan</option>
+                            <option value="Komisaris">Komisaris</option>
+                            <option value="Anggota Komisaris">Anggota Komisaris</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Panggilan / Nickname</label>
+                        <input type="text" id="member-nickname" placeholder="Ahmad" class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold mb-1">URL Foto Profil / Avatar</label>
+                    <input type="text" id="member-avatar" placeholder="https://images.unsplash.com/photo-..." class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Motto / Pesan Singkat</label>
+                    <input type="text" id="member-quote" placeholder="Istiqomah menuju ridho-Nya." class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Username Instagram</label>
+                    <input type="text" id="member-instagram" placeholder="serasi.06" class="w-full px-3.5 py-2 rounded-xl bg-serasi-50/50 dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800 text-xs">
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4">
+                    <button type="button" onclick="closeMemberModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-500 hover:bg-slate-100 dark:hover:bg-navy-800">Batal</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-serasi-500 text-white hover:bg-serasi-600 shadow-sm">Simpan Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="mt-auto bg-white dark:bg-navy-950 border-t border-serasi-100 dark:border-serasi-900 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-serasi-500 text-white font-heading font-extrabold flex items-center justify-center text-sm">
+                    S6
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-slate-800 dark:text-white">ANGKATAN 6 SERASI</span>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Pondok Pesantren Tahfidz & Entrepreneur Thursina YBM PLN</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 text-slate-500 dark:text-slate-400 text-xs font-medium">
+                <a href="#beranda" class="hover:text-serasi-500 transition-colors">Beranda</a>
+                <span>•</span>
+                <a href="#pohon-organisasi" class="hover:text-emerald-500 transition-colors">Pohon Organisasi</a>
+                <span>•</span>
+                <a href="#berita" class="hover:text-serasi-500 transition-colors">Berita</a>
+                <span>•</span>
+                <a href="#anggota" class="hover:text-serasi-500 transition-colors">Direktori</a>
+                <span>•</span>
+                <button onclick="openAdminModalDirectly()" class="text-amber-600 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                    <span>Admin Studio</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // APP ID & FIREBASE SETUP
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'serasi-angkatan6-app';
+        
+        let db = null;
+        let auth = null;
+        let isCloudActive = false;
+
+        // DEFAULT APPLICATION DATA
+        const DEFAULT_DATA = {
+            settings: {
+                heroTitle: 'Harmoni Langkah\nAngkatan 6 SERASI',
+                tagline: 'Six Generation Thursina',
+                heroSubtitle: 'Ruang ukhuwah dan kebersamaan 24 Santri beserta Wali Kelas dan Wali Halaqoh Angkatan 6 SERASI di Pondok Pesantren Tahfidz & Entrepreneur Thursina YBM PLN.',
+                customCSS: ''
+            },
+            members: [
+                { id: 'g1', name: 'Ust. Ali Mudhofir, S.Pd.i., M.M., G.r', nickname: 'Ust. Ali', role: 'Wali Kelas', quote: 'Membimbing dengan keteladanan dan kasih sayang.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80' },
+                { id: 'g2', name: 'Ust. Osama Al-Barra Al-Hafidz', nickname: 'Ust. Osama', role: 'Wali Halaqoh', quote: 'Menjaga hafalan Al-Qur\'an dan kemurnian jiwa santri.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80' },
+
+                { id: 's18', name: 'Muhammad Rafi Wiwaha', nickname: 'Rafi', role: 'Ketua Angkatan', quote: 'Persaudaraan dan kepemimpinan ini abadi selamanya.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80' },
+                { id: 's15', name: 'Muhammad Kafalillah', nickname: 'Kafa', role: 'Wakil Ketua Angkatan', quote: 'Niat yang tulus membuka jalan kemudahan.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=300&q=80' },
+                { id: 's6', name: 'Giovanni Kyle', nickname: 'Giovanni', role: 'Sekretaris Angkatan', quote: 'Kreativitas dan kerapian dalam setiap berkas.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80' },
+                
+                { id: 's22', name: 'Teguh Suryana', nickname: 'Teguh', role: 'Komisaris', quote: 'Teguh dalam pendirian, kokoh dalam ukhuwah.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80' },
+                { id: 's19', name: 'Muhammad Uais Al-Qarni Hasbi', nickname: 'Uais', role: 'Anggota Komisaris', quote: 'Berbakti dan berprestasi untuk agama.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80' },
+                { id: 's14', name: 'Muhamad Rizky', nickname: 'Rizky', role: 'Anggota Komisaris', quote: 'Bekerja keras dalam sunyi, sukses bergema.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80' },
+                { id: 's11', name: 'Kenzie Ahmad Husain Al Ghayyats', nickname: 'Kenzie', role: 'Anggota Komisaris', quote: 'Keberanian lahir dari keyakinan.', instagram: 'serasi.06', avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=300&q=80' },
+
+                { id: 's1', name: 'Ahmad Gusti Habiansyah', nickname: 'Gusti', role: 'Santri', quote: 'Melangkah pasti dengan ridho Illahi.', instagram: 'serasi.06', avatar: '' },
+                { id: 's2', name: 'Ali Zaki', nickname: 'Zaki', role: 'Santri', quote: 'Ilmu dan adab adalah mahkota sejati.', instagram: 'serasi.06', avatar: '' },
+                { id: 's3', name: 'Alif Rizhqul Fhatir', nickname: 'Alif', role: 'Santri', quote: 'Setiap proses membawa keberkahan.', instagram: 'serasi.06', avatar: '' },
+                { id: 's4', name: 'Awaluddin Bahri', nickname: 'Awal', role: 'Santri', quote: 'Menjadi pembuka kebaikan bagi sesama.', instagram: 'serasi.06', avatar: '' },
+                { id: 's5', name: 'Dzakii Aufaa Zufar', nickname: 'Dzakii', role: 'Santri', quote: 'Fokus pada cita-cita, sertai dengan doa.', instagram: 'serasi.06', avatar: '' },
+                { id: 's7', name: 'Hendri Saputra', nickname: 'Hendri', role: 'Santri', quote: 'Kerja keras tidak pernah mengkhianati hasil.', instagram: 'serasi.06', avatar: '' },
+                { id: 's8', name: 'Ihsan Solahuddin Fata', nickname: 'Ihsan', role: 'Santri', quote: 'Sebaik-baik manusia adalah yang paling bermanfaat.', instagram: 'serasi.06', avatar: '' },
+                { id: 's9', name: 'Irfan Alfiansyah', nickname: 'Irfan', role: 'Santri', quote: 'Belajar tanpa lelah, mengabdi tanpa batas.', instagram: 'serasi.06', avatar: '' },
+                { id: 's10', name: 'Justin Geofani Ekhsan Day', nickname: 'Justin', role: 'Santri', quote: 'Selalu optimis dalam menghadapi tantangan.', instagram: 'serasi.06', avatar: '' },
+                { id: 's12', name: 'M. Adamu Sopiyullah', nickname: 'Adamu', role: 'Santri', quote: 'Jadikan Al-Qur\'an sebagai kompas hidup.', instagram: 'serasi.06', avatar: '' },
+                { id: 's13', name: 'M. Imron Syadily', nickname: 'Imron', role: 'Santri', quote: 'Bersatu dalam harmoni SERASI.', instagram: 'serasi.06', avatar: '' },
+                { id: 's16', name: 'Muhammad Al Farisi Linggardjati', nickname: 'Farisi', role: 'Santri', quote: 'Tetap rendah hati di setiap pencapaian.', instagram: 'serasi.06', avatar: '' },
+                { id: 's17', name: 'Muhammad Althaf Sami Borman', nickname: 'Althaf', role: 'Santri', quote: 'Disiplin dan tekun adalah kunci utama.', instagram: 'serasi.06', avatar: '' },
+                { id: 's20', name: 'Nazril Hilal', nickname: 'Nazril', role: 'Santri', quote: 'Terus bersinar seperti cahaya bulan.', instagram: 'serasi.06', avatar: '' },
+                { id: 's21', name: 'Rizki Saipul Hamdi', nickname: 'Rizki', role: 'Santri', quote: 'Syukuri setiap momen kebersamaan ini.', instagram: 'serasi.06', avatar: '' },
+                { id: 's23', name: 'Zaid Fattah Al - Asy\'ari', nickname: 'Zaid', role: 'Santri', quote: 'Mengejar mimpi dengan semangat juang.', instagram: 'serasi.06', avatar: '' },
+                { id: 's24', name: 'Zulfa Rosyid Arridlo', nickname: 'Zulfa', role: 'Santri', quote: 'Rela dan ridho dalam menuntut ilmu.', instagram: 'serasi.06', avatar: '' }
+            ],
+            news: [
+                {
+                    id: 'n1',
+                    title: 'Pembukaan Tahun Ajaran & Halaqoh Qur\'an Angkatan 6 SERASI',
+                    category: 'Kegiatan',
+                    date: '12 September 2026',
+                    image: 'https://images.unsplash.com/photo-1584697964358-3e14ca57658b?auto=format&fit=crop&w=800&q=80',
+                    content: 'Alhamdulillah, seluruh santri Angkatan 6 SERASI telah memulai kegiatan pembelajaran dan halaqoh tahfidz dengan penuh semangat bersama Ust. Osama Al-Barra. Mohon doa restu agar senantiasa istiqomah.'
+                },
+                {
+                    id: 'n2',
+                    title: 'Pelantikan Pengurus BPH & Bagian Aktif SERASI',
+                    category: 'Pengumuman',
+                    date: '05 September 2026',
+                    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+                    content: 'Telah dilantik kepengurusan baru Angkatan 6 SERASI di mana Muhammad Rafi Wiwaha diamanahkan sebagai Ketua Angkatan, M. Kafalillah sebagai Wakil Ketua, dan Giovanni Kyle sebagai Sekretaris, dibantu Teguh Suryana sebagai Ketua Komisaris.'
+                },
+                {
+                    id: 'n3',
+                    title: 'Program Entrepreneur Santri Thursina YBM PLN',
+                    category: 'Prestasi',
+                    date: '28 Agustus 2026',
+                    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
+                    content: 'Santri Angkatan 6 SERASI secara resmi meluncurkan proyek kewirausahaan santri sebagai wadah mengasah skill entrepreneurship sekaligus kemandirian ekonomi umat.'
+                }
+            ],
+            gallery: [
+                { id: 'g1', title: 'Suasana Setoran Hafalan Halaqoh Ust. Osama', category: 'Halaqoh', image: 'https://images.unsplash.com/photo-1584697964358-3e14ca57658b?auto=format&fit=crop&w=600&q=80' },
+                { id: 'g2', title: 'Aktivitas Kelas Ust. Ali Mudhofir', category: 'Kegiatan', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80' },
+                { id: 'g3', title: 'Kebersamaan Santri Angkatan 6 SERASI', category: 'Kebersamaan', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80' },
+                { id: 'g4', title: 'Bimbingan Motivasi & Entrepreneur', category: 'Kegiatan', image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80' },
+                { id: 'g5', title: 'Olahraga & Kebersamaan Santri', category: 'Kebersamaan', image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80' },
+                { id: 'g6', title: 'Musyawarah Pengurus Angkatan', category: 'Kegiatan', image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80' }
+            ]
+        };
+
+        // State Management
+        let storedLocal = localStorage.getItem('serasi_app_data_v5');
+        window.appData = storedLocal ? JSON.parse(storedLocal) : DEFAULT_DATA;
+        window.activeGalleryFilter = 'ALL';
+        window.ADMIN_PASSCODE = 'SERASIANG06';
+
+        async function initFirebaseSync() {
+            try {
+                if (typeof __firebase_config !== 'undefined') {
+                    const config = JSON.parse(__firebase_config);
+                    const app = initializeApp(config);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    // Strict collection path for public shared data
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'serasi_data', 'main_data');
+
+                    // Realtime snapshot listener
+                    onSnapshot(docRef, (docSnap) => {
+                        if (docSnap.exists()) {
+                            window.appData = docSnap.data();
+                            localStorage.setItem('serasi_app_data_v5', JSON.stringify(window.appData));
+                            renderAllSections();
+                        } else {
+                            // Seed initial cloud data
+                            setDoc(docRef, window.appData);
+                        }
+                        isCloudActive = true;
+                        document.getElementById('sync-status-badge')?.classList.remove('hidden');
+                    }, (err) => {
+                        console.warn('Firestore snapshot error, falling back to local:', err);
+                    });
+                }
+            } catch (err) {
+                console.warn('Firebase sync not available, running in local mode:', err);
+            }
+        }
+
+        window.saveDataGlobal = async function() {
+            localStorage.setItem('serasi_app_data_v5', JSON.stringify(window.appData));
+            renderAllSections();
+
+            if (isCloudActive && db && auth.currentUser) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'serasi_data', 'main_data');
+                    await setDoc(docRef, window.appData);
+                } catch (e) {
+                    console.error('Cloud save failed:', e);
+                }
+            }
+        };
+
+        function renderAllSections() {
+            renderContentSettings();
+            renderPohonOrganisasi();
+            renderNews();
+            renderMembers();
+            renderGallery();
+            applyCustomCSS();
+            updateStatsCount();
+            renderAdminNewsList();
+        }
+
+        window.onload = function() {
+            renderAllSections();
+            initFirebaseSync();
+        };
+
+        function renderPohonOrganisasi() {
+            const level1 = document.getElementById('tree-level-1');
+            const level2 = document.getElementById('tree-level-2');
+            const level3 = document.getElementById('tree-level-3');
+            const level4 = document.getElementById('tree-level-4');
+
+            if (!level1) return;
+
+            const members = window.appData.members;
+
+            // Level 1: Pembimbing Utama
+            const g1 = members.find(m => m.role === 'Wali Kelas') || members[0];
+            const g2 = members.find(m => m.role === 'Wali Halaqoh') || members[1];
+
+            level1.innerHTML = [g1, g2].map(m => createTreeNodeCircle(m, 'ribbon-label-gold')).join('');
+
+            // Level 2: BPH
+            const ketua = members.find(m => m.role === 'Ketua Angkatan') || members[2];
+            const wakil = members.find(m => m.role === 'Wakil Ketua Angkatan') || members[3];
+            const sekr = members.find(m => m.role === 'Sekretaris Angkatan') || members[4];
+
+            level2.innerHTML = [ketua, wakil, sekr].map(m => createTreeNodeCircle(m, 'ribbon-label')).join('');
+
+            // Level 3: Komisaris
+            const kom = members.find(m => m.role === 'Komisaris') || members[5];
+            const angKom = members.filter(m => m.role === 'Anggota Komisaris').slice(0, 4);
+
+            level3.innerHTML = [kom, ...angKom].map(m => createTreeNodeCircle(m, 'ribbon-label')).join('');
+
+            // Level 4: Santri Members
+            const generalMembers = members.filter(m => m.role === 'Santri' || m.role === 'Anggota');
+            level4.innerHTML = generalMembers.map(m => `
+                <div class="flex flex-col items-center group cursor-pointer" onclick="openEditMemberModal('${m.id}')">
+                    <div class="w-14 h-14 rounded-full border-4 border-emerald-300 dark:border-emerald-600 bg-white dark:bg-navy-800 overflow-hidden shadow-md group-hover:scale-110 transition-transform">
+                        <img src="${m.avatar || getAvatarPlaceholder(m.name)}" alt="${m.name}" class="w-full h-full object-cover">
+                    </div>
+                    <span class="mt-1 px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[9px] font-bold truncate max-w-[80px] shadow-sm">
+                        ${m.nickname || m.name.split(' ')[0]}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function createTreeNodeCircle(m, ribbonClass) {
+            if (!m) return '';
+            return `
+                <div class="flex flex-col items-center relative group cursor-pointer" onclick="openEditMemberModal('${m.id}')">
+                    <div class="tree-node-circle w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-emerald-400 dark:border-emerald-500 bg-white dark:bg-navy-800 p-1 relative z-10">
+                        <img src="${m.avatar || getAvatarPlaceholder(m.name)}" alt="${m.name}" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <div class="ribbon-label ${ribbonClass} text-white font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full -mt-3 z-20 text-center max-w-[140px] truncate">
+                        ${m.role}
+                    </div>
+                    <span class="text-xs font-bold text-slate-800 dark:text-white mt-1 text-center truncate max-w-[130px]">
+                        ${m.name}
+                    </span>
+                </div>
+            `;
+        }
+
+        function getAvatarPlaceholder(name) {
+            const initial = name ? name.charAt(0).toUpperCase() : 'S';
+            return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0ea5e9&color=ffffff&bold=true`;
+        }
+
+        function renderNews() {
+            const container = document.getElementById('news-container');
+            if (!container) return;
+
+            const newsList = window.appData.news || [];
+            if (newsList.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-3 text-center py-12 glass-card rounded-2xl">
+                        <i class="fa-solid fa-newspaper text-4xl text-slate-300 mb-2"></i>
+                        <p class="text-xs text-slate-500">Belum ada berita dipublikasikan.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = newsList.map(n => `
+                <div class="glass-card rounded-2xl overflow-hidden border border-serasi-200 dark:border-serasi-800 hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-100 dark:bg-navy-800">
+                            <img src="${n.image || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80'}" alt="${n.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider shadow">
+                                ${n.category || 'Berita'}
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-[10px] font-bold text-slate-400 block mb-1">
+                                <i class="fa-regular fa-calendar mr-1"></i>${n.date}
+                            </span>
+                            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white mb-2 leading-snug line-clamp-2">
+                                ${n.title}
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                                ${n.content}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0">
+                        <button onclick="openNewsDetailModal('${n.id}')" class="w-full py-2 rounded-xl bg-serasi-100 dark:bg-navy-800 hover:bg-serasi-500 hover:text-white text-serasi-700 dark:text-serasi-300 text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                            <span>Baca Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.openNewsDetailModal = function(id) {
+            const n = window.appData.news.find(x => x.id === id);
+            if (!n) return;
+            document.getElementById('news-modal-img').src = n.image || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80';
+            document.getElementById('news-modal-cat').innerText = n.category;
+            document.getElementById('news-modal-date').innerText = n.date;
+            document.getElementById('news-modal-title').innerText = n.title;
+            document.getElementById('news-modal-content').innerText = n.content;
+            document.getElementById('news-detail-modal').classList.remove('hidden');
+        };
+
+        window.closeNewsDetailModal = function() {
+            document.getElementById('news-detail-modal').classList.add('hidden');
+        };
+
+        window.renderMembers = function() {
+            const container = document.getElementById('members-container');
+            if (!container) return;
+
+            const search = (document.getElementById('member-search')?.value || '').toLowerCase();
+            const roleFilter = document.getElementById('member-filter-role')?.value || 'ALL';
+
+            const filtered = window.appData.members.filter(m => {
+                const matchesSearch = m.name.toLowerCase().includes(search) || (m.nickname && m.nickname.toLowerCase().includes(search));
+                let matchesRole = false;
+                if (roleFilter === 'ALL') matchesRole = true;
+                else if (roleFilter === 'Pengurus / Bagian Aktif') {
+                    matchesRole = ['Ketua Angkatan', 'Wakil Ketua Angkatan', 'Sekretaris Angkatan', 'Komisaris', 'Anggota Komisaris'].includes(m.role);
+                } else {
+                    matchesRole = m.role === roleFilter;
+                }
+                return matchesSearch && matchesRole;
+            });
+
+            container.innerHTML = filtered.map(m => {
+                const isGuru = m.role === 'Wali Kelas' || m.role === 'Wali Halaqoh';
+                const isBPH = ['Ketua Angkatan', 'Wakil Ketua Angkatan', 'Sekretaris Angkatan', 'Komisaris', 'Anggota Komisaris'].includes(m.role);
+
+                let badgeColor = 'bg-serasi-100 text-serasi-700 dark:bg-serasi-900/60 dark:text-serasi-300';
+                if (isGuru) badgeColor = 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300';
+                else if (isBPH) badgeColor = 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300';
+
+                return `
+                <div class="glass-card p-5 rounded-2xl border ${isGuru ? 'border-amber-300/60 dark:border-amber-700/60' : 'border-serasi-200 dark:border-serasi-800'} hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${badgeColor}">
+                                ${m.role}
+                            </span>
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <button onclick="openEditMemberModal('${m.id}')" class="w-7 h-7 rounded-lg bg-serasi-100 text-serasi-600 hover:bg-serasi-500 hover:text-white flex items-center justify-center text-xs" title="Edit">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button onclick="deleteMember('${m.id}')" class="w-7 h-7 rounded-lg bg-rose-100 text-rose-600 hover:bg-rose-500 hover:text-white flex items-center justify-center text-xs" title="Hapus">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="w-16 h-16 rounded-full border-2 border-emerald-400 overflow-hidden shadow-md mb-3">
+                            <img src="${m.avatar || getAvatarPlaceholder(m.name)}" alt="${m.name}" class="w-full h-full object-cover">
+                        </div>
+
+                        <h4 class="font-heading font-bold text-base text-slate-800 dark:text-white leading-tight">${m.name}</h4>
+                        <p class="text-xs font-semibold text-emerald-500 mt-0.5 mb-2">"${m.nickname}"</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4">"${m.quote || 'Mencapai keberkahan bersama SERASI.'}"</p>
+                    </div>
+
+                    <a href="https://instagram.com/${m.instagram || 'serasi.06'}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-500 hover:underline">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@${m.instagram || 'serasi.06'}</span>
+                    </a>
+                </div>
+            `}).join('');
+        };
+
+        window.openAddMemberModal = function() {
+            document.getElementById('member-id').value = '';
+            document.getElementById('member-form').reset();
+            document.getElementById('member-modal-title').innerText = 'Tambah Anggota / Pengurus SERASI';
+            document.getElementById('member-modal').classList.remove('hidden');
+        };
+
+        window.openEditMemberModal = function(id) {
+            const m = window.appData.members.find(x => x.id === id);
+            if (!m) return;
+            document.getElementById('member-id').value = m.id;
+            document.getElementById('member-name').value = m.name;
+            document.getElementById('member-nickname').value = m.nickname || '';
+            document.getElementById('member-role').value = m.role;
+            document.getElementById('member-avatar').value = m.avatar || '';
+            document.getElementById('member-quote').value = m.quote || '';
+            document.getElementById('member-instagram').value = m.instagram || '';
+            document.getElementById('member-modal-title').innerText = 'Edit Anggota SERASI';
+            document.getElementById('member-modal').classList.remove('hidden');
+        };
+
+        window.closeMemberModal = function() {
+            document.getElementById('member-modal').classList.add('hidden');
+        };
+
+        window.saveMemberForm = function(e) {
+            e.preventDefault();
+            const id = document.getElementById('member-id').value;
+            const name = document.getElementById('member-name').value;
+            const nickname = document.getElementById('member-nickname').value;
+            const role = document.getElementById('member-role').value;
+            const avatar = document.getElementById('member-avatar').value;
+            const quote = document.getElementById('member-quote').value;
+            const instagram = document.getElementById('member-instagram').value;
+
+            if (id) {
+                const idx = window.appData.members.findIndex(x => x.id === id);
+                if (idx !== -1) {
+                    window.appData.members[idx] = { id, name, nickname, role, avatar, quote, instagram };
+                }
+            } else {
+                window.appData.members.push({
+                    id: 'm_' + Date.now(),
+                    name, nickname, role, avatar, quote, instagram
+                });
+            }
+
+            window.saveDataGlobal();
+            closeMemberModal();
+        };
+
+        window.deleteMember = function(id) {
+            window.appData.members = window.appData.members.filter(x => x.id !== id);
+            window.saveDataGlobal();
+        };
+
+        window.filterGallery = function(cat) {
+            window.activeGalleryFilter = cat;
+            document.querySelectorAll('.gallery-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-serasi-500', 'text-white');
+                btn.classList.add('bg-serasi-100', 'text-slate-600', 'dark:bg-navy-800', 'dark:text-slate-300');
+            });
+            event.target.classList.add('bg-serasi-500', 'text-white');
+            event.target.classList.remove('bg-serasi-100', 'text-slate-600');
+            renderGallery();
+        };
+
+        function renderGallery() {
+            const container = document.getElementById('gallery-container');
+            if (!container) return;
+
+            const items = window.activeGalleryFilter === 'ALL' 
+                ? window.appData.gallery 
+                : window.appData.gallery.filter(g => g.category === window.activeGalleryFilter);
+
+            container.innerHTML = items.map(g => `
+                <div class="group relative rounded-2xl overflow-hidden shadow-md glass-card">
+                    <img src="${g.image}" alt="${g.title}" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 text-white">
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500 text-[10px] font-bold uppercase tracking-wider mb-2">
+                            ${g.category}
+                        </span>
+                        <h4 class="font-heading font-bold text-base leading-tight">${g.title}</h4>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.openAdminModalDirectly = function(tabName = 'news') {
+            document.getElementById('admin-pass-input').value = '';
+            document.getElementById('admin-auth-error').classList.add('hidden');
+            document.getElementById('admin-auth-modal').classList.remove('hidden');
+            window.targetAdminTab = tabName;
+        };
+
+        window.closeAdminAuthModal = function() {
+            document.getElementById('admin-auth-modal').classList.add('hidden');
+        };
+
+        window.verifyAdminPassword = function(e) {
+            e.preventDefault();
+            const input = document.getElementById('admin-pass-input').value;
+
+            if (input === window.ADMIN_PASSCODE) {
+                closeAdminAuthModal();
+                openAdminModal();
+                if (window.targetAdminTab) switchAdminTab(window.targetAdminTab);
+            } else {
+                document.getElementById('admin-auth-error').classList.remove('hidden');
+            }
+        };
+
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.getElementById('admin-hero-title').value = window.appData.settings.heroTitle;
+            document.getElementById('admin-tagline').value = window.appData.settings.tagline;
+            document.getElementById('admin-hero-subtitle').value = window.appData.settings.heroSubtitle;
+            document.getElementById('admin-custom-css').value = window.appData.settings.customCSS || '';
+            document.getElementById('admin-json-data').value = JSON.stringify(window.appData, null, 2);
+            renderAdminNewsList();
+        }
+
+        window.closeAdminModal = function() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        };
+
+        window.switchAdminTab = function(tab) {
+            ['news', 'content', 'code', 'json'].forEach(t => {
+                document.getElementById(`tab-${t}`)?.classList.add('hidden');
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (btn) btn.className = 'px-4 py-2 text-xs font-bold rounded-t-xl text-slate-500 hover:text-serasi-500';
+            });
+
+            document.getElementById(`tab-${tab}`)?.classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-btn-${tab}`);
+            if (activeBtn) activeBtn.className = 'px-4 py-2 text-xs font-bold rounded-t-xl border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 bg-white dark:bg-navy-900';
+        };
+
+        window.saveNewsItem = function(e) {
+            e.preventDefault();
+            const id = document.getElementById('admin-news-id').value;
+            const title = document.getElementById('admin-news-title').value;
+            const category = document.getElementById('admin-news-category').value;
+            const image = document.getElementById('admin-news-image').value;
+            const content = document.getElementById('admin-news-content').value;
+            const dateStr = new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+
+            if (!window.appData.news) window.appData.news = [];
+
+            if (id) {
+                const idx = window.appData.news.findIndex(x => x.id === id);
+                if (idx !== -1) {
+                    window.appData.news[idx] = { id, title, category, image, content, date: window.appData.news[idx].date || dateStr };
+                }
+            } else {
+                window.appData.news.unshift({
+                    id: 'n_' + Date.now(),
+                    title, category, image, content, date: dateStr
+                });
+            }
+
+            window.saveDataGlobal();
+            resetNewsForm();
+        };
+
+        window.editNewsItem = function(id) {
+            const n = window.appData.news.find(x => x.id === id);
+            if (!n) return;
+            document.getElementById('admin-news-id').value = n.id;
+            document.getElementById('admin-news-title').value = n.title;
+            document.getElementById('admin-news-category').value = n.category;
+            document.getElementById('admin-news-image').value = n.image || '';
+            document.getElementById('admin-news-content').value = n.content;
+            document.getElementById('news-form-title').innerText = 'Edit Berita #' + n.id;
+        };
+
+        window.deleteNewsItem = function(id) {
+            window.appData.news = window.appData.news.filter(x => x.id !== id);
+            window.saveDataGlobal();
+        };
+
+        window.resetNewsForm = function() {
+            document.getElementById('admin-news-id').value = '';
+            document.getElementById('admin-news-title').value = '';
+            document.getElementById('admin-news-image').value = '';
+            document.getElementById('admin-news-content').value = '';
+            document.getElementById('news-form-title').innerText = 'Tambah / Edit Berita Baru';
+        };
+
+        function renderAdminNewsList() {
+            const container = document.getElementById('admin-news-list');
+            if (!container) return;
+
+            const list = window.appData.news || [];
+            container.innerHTML = list.map(n => `
+                <div class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-navy-800 border border-serasi-200 dark:border-serasi-800">
+                    <div class="flex items-center gap-3 truncate pr-2">
+                        <img src="${n.image || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=100&q=80'}" class="w-10 h-10 rounded-lg object-cover">
+                        <div class="truncate">
+                            <h5 class="text-xs font-bold text-slate-800 dark:text-white truncate">${n.title}</h5>
+                            <span class="text-[10px] text-slate-400">${n.category} • ${n.date}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button onclick="editNewsItem('${n.id}')" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-700 text-xs font-bold hover:bg-amber-500 hover:text-white">Edit</button>
+                        <button onclick="deleteNewsItem('${n.id}')" class="px-2.5 py-1 rounded-lg bg-rose-100 text-rose-700 text-xs font-bold hover:bg-rose-500 hover:text-white">Hapus</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.saveAdminContentSettings = function() {
+            window.appData.settings.heroTitle = document.getElementById('admin-hero-title').value;
+            window.appData.settings.tagline = document.getElementById('admin-tagline').value;
+            window.appData.settings.heroSubtitle = document.getElementById('admin-hero-subtitle').value;
+
+            window.saveDataGlobal();
+
+            const msg = document.getElementById('admin-save-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 2500);
+        };
+
+        function renderContentSettings() {
+            if (window.appData.settings.heroTitle) {
+                document.getElementById('hero-title').innerHTML = window.appData.settings.heroTitle.replace('\n', '<br>');
+            }
+            if (window.appData.settings.tagline) {
+                document.getElementById('site-tagline-badge').innerText = window.appData.settings.tagline;
+            }
+            if (window.appData.settings.heroSubtitle) {
+                document.getElementById('hero-subtitle').innerText = window.appData.settings.heroSubtitle;
+            }
+        }
+
+        window.applyCustomCSS = function() {
+            const css = document.getElementById('admin-custom-css')?.value || window.appData.settings.customCSS || '';
+            document.getElementById('admin-custom-style').innerHTML = css;
+            window.appData.settings.customCSS = css;
+            window.saveDataGlobal();
+        };
+
+        window.saveJSONData = function() {
+            try {
+                const parsed = JSON.parse(document.getElementById('admin-json-data').value);
+                window.appData = parsed;
+                window.saveDataGlobal();
+            } catch (err) {
+                alert('JSON format tidak valid.');
+            }
+        };
+
+        window.resetDefaultData = function() {
+            window.appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+            window.saveDataGlobal();
+            closeAdminModal();
+        };
+
+        function updateStatsCount() {
+            const santriCount = window.appData.members.filter(m => 
+                m.role !== 'Wali Kelas' && m.role !== 'Wali Halaqoh'
+            ).length;
+            
+            const guruCount = window.appData.members.filter(m => 
+                m.role === 'Wali Kelas' || m.role === 'Wali Halaqoh'
+            ).length;
+
+            const santriEl = document.getElementById('stat-santri-count');
+            const guruEl = document.getElementById('stat-guru-count');
+            const newsEl = document.getElementById('stat-news-count');
+            const galleryEl = document.getElementById('stat-gallery-count');
+
+            if (santriEl) santriEl.innerText = santriCount;
+            if (guruEl) guruEl.innerText = guruCount;
+            if (newsEl) newsEl.innerText = (window.appData.news || []).length;
+            if (galleryEl) galleryEl.innerText = (window.appData.gallery || []).length + '+';
+        }
+
+        window.toggleDarkMode = function() {
+            document.documentElement.classList.toggle('dark');
+        };
+
+        window.toggleMobileMenu = function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        };
+    </script>
+</body>
+</html>
